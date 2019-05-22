@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const app = express();
 const port = process.env.PORT || 5000;
 
+const home = require('./routes/home');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -24,6 +26,8 @@ const connection = mysql.createConnection({
 })
 
 connection.connect();
+
+app.use('/', home);
 
 app.get('/api/customers', (req, res) => {
     connection.query(

@@ -114,10 +114,11 @@ class App extends Component {
     this.state = {
       customers: '',
       completed: 0,
-      searchKeyword: ''
+      searchKeyword: '',
     }
     this.stateRefresh = this.stateRefresh.bind(this);
     this.handleValueChange = this.handleValueChange.bind(this)
+
   }
 
   stateRefresh() {
@@ -169,7 +170,6 @@ class App extends Component {
           return <Customer stateRefresh={this.stateRefresh} key={c.id} id={c.id} image={c.image} name={c.name} birthday={c.birthday} gender={c.gender} job={c.job} />
       });
     }
-
 
     const { classes } = this.props;
     const cellList = ['번호', '프로필 이미지', '이름', '생년월일', '성별', '직업', '설정']
